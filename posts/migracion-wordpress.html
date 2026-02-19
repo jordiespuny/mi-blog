@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Migrar de WordPress a MDX — El Blog</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header>
+    <a href="../index.html">
+      <div class="blog-title">El Blog</div>
+    </a>
+    <span class="blog-tagline">Un CMS hecho de archivos</span>
+  </header>
+
+  <main>
+    <article>
+      <div class="post-header">
+        <div class="post-meta">19 de febrero de 2026 &mdash; Tecnología</div>
+        <h1>Migrar de WordPress a MDX: cuando la IA cambia la ecuación</h1>
+        <div class="post-author">Resumen del artículo de Nick Diego</div>
+      </div>
+
+      <div class="post-content">
+        <p>Nick Diego lleva casi una década construyendo con WordPress, pero la llegada de los flujos de trabajo con IA le llevó a replantearse los cimientos de su sitio personal. El resultado: una migración completa a Next.js con MDX que tardó un fin de semana.</p>
+
+        <h2>El problema con WordPress y la IA</h2>
+
+        <p>En WordPress el contenido vive en una base de datos, los archivos de medios se guardan en <code>wp-content/uploads</code> y el aspecto visual depende del tema y los plugins. Toda esa maquinaria hace que las herramientas de IA no puedan "ver" fácilmente la estructura del proyecto: no pueden leer los posts existentes para ganar contexto ni referenciar patrones de diseño establecidos a lo largo del sitio.</p>
+
+        <blockquote>«El coste de las abstracciones con IA es muy alto.» — Lee Robinson</blockquote>
+
+        <p>Esta frase, que Nick atribuye a Lee Robinson, resume perfectamente el problema: cuantas más capas se interponen entre el desarrollador y el contenido, menos efectiva resulta la asistencia de la IA.</p>
+
+        <h2>La nueva arquitectura</h2>
+
+        <p>El sitio resultante tiene unas 5.200 líneas de código (sin contar los posts) y se apoya en tres pilares:</p>
+
+        <ul>
+          <li><strong>Next.js 16</strong> como framework.</li>
+          <li><strong>MDX</strong> para el contenido: cada post es simplemente un archivo de texto.</li>
+          <li><strong>Tailwind CSS</strong> para los estilos y <strong>Shiki</strong> para el resaltado de sintaxis.</li>
+        </ul>
+
+        <p>Los posts con imágenes viven en carpetas propias; los que no tienen imágenes son un único archivo. No hay biblioteca de medios ni IDs de adjuntos. Todo está versionado en Git y desplegado en Vercel, lo que da a las herramientas de IA acceso directo al contexto completo del sitio.</p>
+
+        <h2>Enseñar a Claude sobre el proyecto</h2>
+
+        <p>La clave para sacar partido a la IA es un archivo <code>CLAUDE.md</code> en la raíz del repositorio, que apunta a una carpeta <code>docs/</code> con guías sobre componentes, convenciones de autoría, patrones de diseño y reglas de estilo. Con ese contexto, tareas como añadir botones de copia a los bloques de código o hacer expandibles los bloques largos se resuelven con un simple prompt en cuestión de minutos.</p>
+
+        <p>Nick también usa <em>skills</em> (prompts reutilizables invocados con comandos <code>/</code>): <code>/new-post</code> le hace unas preguntas y crea el archivo MDX con el <em>frontmatter</em> ya rellenado; <code>/commit</code> agrupa los cambios lógicamente y redacta los mensajes de commit.</p>
+
+        <h2>Contrapartidas</h2>
+
+        <p>El sistema no es perfecto: sin comentarios, la búsqueda es la del propio navegador y publicar significa hacer un merge a <code>main</code>. Para un sitio personal donde priman la velocidad y la iteración, esas limitaciones son asumibles. Para otros contextos, no tanto.</p>
+
+        <p>La migración demuestra que, cuando el contenido es texto plano versionado en Git, la IA puede convertirse en un colaborador genuino del proceso editorial y de desarrollo, en lugar de un asistente que trabaja a ciegas.</p>
+
+        <p class="post-source">Fuente original: <a href="https://nickdiego.com/migrating-from-wordpress-to-mdx" target="_blank" rel="noopener noreferrer">Migrating from WordPress to MDX — Nick Diego</a></p>
+      </div>
+    </article>
+
+    <a href="../index.html" class="back-link">← Volver al inicio</a>
+  </main>
+
+  <footer>
+    &copy; 2025 El Blog. Hecho con archivos HTML.
+  </footer>
+
+</body>
+</html>
