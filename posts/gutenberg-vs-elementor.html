@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Por qué prefiero Gutenberg a Elementor — El Blog</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header>
+    <a href="../index.html">
+      <div class="blog-title">El Blog</div>
+    </a>
+    <span class="blog-tagline">Un CMS hecho de archivos</span>
+  </header>
+
+  <main>
+    <article>
+      <div class="post-header">
+        <div class="post-meta">19 de febrero de 2026 &mdash; WordPress &middot; Herramientas</div>
+        <h1>Por qué prefiero Gutenberg a Elementor</h1>
+        <div class="post-author">Por El Equipo</div>
+      </div>
+
+      <div class="post-content">
+        <p>Elementor resolvió un problema real: WordPress necesitaba un editor visual, y Elementor lo entregó con arrastrar y soltar, previsualización en tiempo real y control total sin tocar código. Pero con el tiempo creció más de la cuenta, y hoy supone más un lastre que una ventaja.</p>
+
+        <h2>Un CMS dentro del CMS</h2>
+
+        <p>El problema central de Elementor es que ha construido su propio ecosistema paralelo al de WordPress: tiene su propio sistema de plantillas (WordPress ya tiene el suyo), sus propios colores globales (WordPress usa <code>theme.json</code>), su propia tipografía, sus propios puntos de ruptura responsivos, su propio constructor de popups... Cada funcionalidad que WordPress ha ido incorporando de forma nativa, Elementor ya la había construido antes a su manera. El resultado es que gestionas dos de todo, y no siempre se ponen de acuerdo.</p>
+
+        <p>A nivel técnico, instalar Elementor supone llenar la base de datos con un tipo de post personalizado (<code>elementor_library</code>), guardar el contenido de cada página como datos serializados en <code>wp_postmeta</code> y generar un archivo CSS propio por página en <code>/wp-content/uploads/elementor/css/</code>. Un sitio de cinco páginas carga el peso de un framework de aplicación completo.</p>
+
+        <blockquote>«No estás construyendo un sitio WordPress. Estás construyendo un sitio Elementor que casualmente corre sobre WordPress.» — Johanne Courtright</blockquote>
+
+        <h2>La guerra de especificidad CSS</h2>
+
+        <p>Elementor aplica estilos inline y selectores hiper-específicos con <code>!important</code> por todas partes. Cambiar el color de hover de un botón, algo que debería ser una línea de CSS, puede convertirse en una batalla interminable: tu selector no tiene suficiente peso, añades <code>!important</code>, el suyo también lo tiene... La propia documentación oficial de Elementor recomienda usar <code>!important</code> para sobreescribir sus estilos. Eso no es un workaround: es el método oficial.</p>
+
+        <p>Además, Elementor hace un reset agresivo de los estilos del navegador y luego los reconstruye a su manera. Una lista <code>&lt;ul&gt;</code> dentro de Elementor no se comporta como una lista: pierde los marcadores, el padding, el espaciado. Hay que escribir CSS para que un elemento semántico vuelva a comportarse como tal. Eso no es estilizar: es restaurar.</p>
+
+        <h2>Por qué Gutenberg funciona mejor</h2>
+
+        <p>Gutenberg apuesta por lo contrario: estilos mínimos de base, sin inline styles forzados, sin guerras de especificidad. Una lista es una lista. Un titular es un titular. Y lo más importante: <code>theme.json</code> es la única fuente de verdad para colores, tipografía y espaciado. Cambias un valor y se propaga por todo el sitio al instante.</p>
+
+        <p>Esto tiene un impacto directo en el trabajo con clientes. Con Gutenberg bien configurado, los clientes ven su contenido, no un panel de control. Hacen clic, escriben y guardan. No necesitan entender columnas, secciones y widgets. Y cuando el cliente pide más espacio en blanco o un cuerpo de texto dos píxeles más grande, es una sola línea en <code>theme.json</code>, no una cacería por cada widget.</p>
+
+        <h2>El futuro ya está aquí</h2>
+
+        <p>WordPress ha elegido una dirección: Gutenberg es el editor, Full Site Editing es el sistema de temas y <code>theme.json</code> es la forma de gestionar estilos. Elementor lo sabe: su versión 4 copia el enfoque de bloques de Gutenberg. Pero está atrapado: millones de sitios dependen de que su código antiguo funcione exactamente como siempre. Tendrá que mantener los dos sistemas indefinidamente.</p>
+
+        <p>La era de los constructores de páginas está llegando a su fin. Gutenberg ofrece marcado limpio, HTML semántico, estilos globales que realmente funcionan y sitios que los clientes pueden editar sin llamar al desarrollador.</p>
+
+        <p class="post-source">Fuente original: <a href="https://groundworx.dev/resources/why-i-choose-gutenberg-over-elementor/" target="_blank" rel="noopener noreferrer">Why I Choose Gutenberg Over Elementor — Groundworx</a></p>
+      </div>
+    </article>
+
+    <a href="../index.html" class="back-link">← Volver al inicio</a>
+  </main>
+
+  <footer>
+    &copy; 2025 El Blog. Hecho con archivos HTML. &mdash; jordiespuny &middot; <a href="https://zoom3.net" target="_blank" rel="noopener noreferrer">zoom3.net</a>
+  </footer>
+
+</body>
+</html>
